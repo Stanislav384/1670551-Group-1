@@ -29,7 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     background: 
-        linear-gradient(to right, rgb(15, 22, 26) 0%,  rgba(9, 14, 16, 0.6) 30%,  rgba(9, 14, 16, 0.6) 70%, rgb(15, 22, 26) 100%),
+        linear-gradient(to right, rgb(15, 20, 26) 0%,  rgba(16, 21, 29, 0.75) 30%,  rgba(16, 21, 29, 0.75) 70%, rgb(15, 20, 26) 100%),
         url(/icons/textures/concrete.png);
     background-repeat: 
         no-repeat,
@@ -60,7 +60,7 @@ header{
     border: 5px solid transparent;
     border-image: linear-gradient(to right,
         rgb(24, 33, 42) 0%,
-        rgb(120, 120, 120) 50%,
+        rgb(102, 106, 110) 50%,
         rgb(24, 33, 42) 100%
     ) 1;
 
@@ -69,7 +69,7 @@ header{
         rgb(24, 33, 42) 0%,
         rgba(24, 33, 42, 0.5) 50%,
         rgb(24, 33, 42) 100%),
-        url("icons/textures/riffled_metal.png");
+        url("icons/textures/surface.png");
     background-repeat:
         no-repeat,
         repeat;
@@ -147,8 +147,8 @@ footer{
     display: flex;
     border: 10px solid rgba(24, 33, 42, 0.9);
     background:
-        linear-gradient(rgba(24, 33, 42, 0.9)),
-        url("icons/textures/riffled_metal.png");
+        linear-gradient(rgba(24, 33, 42, 0.97)),
+        url("icons/textures/surface.png");
     background-repeat:
         repeat;
     background-size:
@@ -158,4 +158,109 @@ footer{
     max-height: 10vw;
     top:90vw;
     z-index:5;
+}
+
+.item-cell{
+    display:flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-shrink:0;
+    width: 110px;
+    height: 130px;
+    border-radius: 20px;
+    background: 
+        linear-gradient(rgb(35, 43, 52)) padding-box,
+        linear-gradient(rgb(47, 55, 68), rgb(35, 43, 52)) border-box;
+    border: 2px solid transparent;
+    background-clip: padding-box, border-box;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-evenly;
+    filter:brightness(0.9);
+}
+.item-cell-name{
+    color:#d6d6d6;
+    margin:0;
+}
+.item-cell-icon{
+    margin: 0;
+    width: 90px;
+}
+.item-cell-price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:5px;
+}
+.item-cell-price-text{
+    color:#d6d6d6;
+    margin: 0;
+}
+.item-cell-price-coin{
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.background-preset-1{
+    background:
+        radial-gradient(rgba(32, 42, 53, 0.95) 0%, rgb(23, 30, 39) 80%),
+        url("icons/textures/riffled_metal.png");
+    background-repeat:
+        no-repeat,
+        repeat;
+    background-size:
+        cover,
+        100px;
+}
+.background-preset-2{
+    background:
+        linear-gradient(rgba(24, 33, 42, 0.9)),
+        url("icons/textures/riffled_metal.png");
+    background-repeat:
+        repeat;
+    background-size:
+        100px;
+}
+.background-preset-3{
+    background:
+        linear-gradient(rgba(37, 43, 48, 0.8)),
+        url("icons/textures/surface.png");
+    background-repeat:
+        repeat;
+    background-size:
+        100px;
+}
+.background-preset-4{
+    background: 
+        linear-gradient(to right, rgb(15, 20, 26) 0%,  rgba(16, 21, 29, 0.75) 30%,  rgba(16, 21, 29, 0.75) 70%, rgb(15, 20, 26) 100%),
+        url(/icons/textures/concrete.png);
+    background-repeat: 
+        no-repeat,
+        repeat;
+    background-size: 
+        cover,
+        100px;
+}
+.background-preset-5{
+    background:
+        linear-gradient(to bottom,
+        rgba(24, 33, 42, 0.8) 50%,
+        rgba(24, 33, 42, 0.9) 100%),
+        url("icons/textures/surface.png");
+    background-repeat:
+        no-repeat,
+        repeat;
+    background-size:
+        cover,
+        100px;
+}
+.background-preset-6{
+    background:
+        linear-gradient(rgba(24, 33, 42, 0.97)),
+        url("icons/textures/surface.png");
+    background-repeat:
+        repeat;
+    background-size:
+        100px;
 }
