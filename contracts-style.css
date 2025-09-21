@@ -39,6 +39,38 @@ body {
     color: #999;
 }
 
+/* место в инвентаре под предметы */
+
+.items-empty {
+    background: #1f2433;
+    padding: 15px;
+    font-size: 13px;
+    color: #999;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    background: #2f3545;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.item {
+    width: 40px;
+    height: 60px;
+    background: #1f2433;
+    border-radius: 3px;
+}
+
+/* класс скрытия */
+.hidden {
+    display: none;
+}
+
 /* правая часть */
 .contract-section {
     background: #252b3a;
