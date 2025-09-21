@@ -12,7 +12,12 @@
 
     <div class="upgrade-container-main background-preset-1">
         <div class="upgrade-upper-container">
-            <div class="upgrade-container-main-item-1"></div>
+            <div class="upgrade-containers">
+                <div class="upgrade-container-main-item-1">
+                    <img src="icons/icon_filler.png" class="selected-item" id="selected-item-left">
+                </div>
+            </div>
+            
 
             <div class="upgrade-circle-container-dec-1">
                 <div class="upgrade-circle-container-dec-2">
@@ -30,7 +35,11 @@
 
                 </div>
             </div>
-            <div class="upgrade-container-main-item-2"></div>
+            <div class="upgrade-containers">
+                <div class="upgrade-container-main-item-2">
+                    <img src="icons/icon_filler.png" class="selected-item" id="selected-item-right">
+                </div>
+            </div>
         </div>
         <div class="upgrade-lower-container background-preset-3">
             <div class="upgrade-button"><p class ="upgrade-button-text">UPGRADE</p></div>
@@ -44,11 +53,11 @@
                 <div class="filter-container">
                     <div class="filter-part">
                         <h5 class="inventory-filter-text">FROM</h5>
-                        <input type="text" class="filter-input" value="1000">
+                        <input type="text" class="filter-input" value="1000" id="filter-inventory-from">
                     </div>
                     <div class="filter-part">
                         <h5 class="inventory-filter-text">TO</h5>
-                        <input type="text" class="filter-input" value="5000">
+                        <input type="text" class="filter-input" value="5000" id="filter-inventory-to">
                     </div>
                 </div>
             </div>
@@ -61,11 +70,11 @@
                 <div class="filter-container">
                     <div class="filter-part">
                         <h5 class="inventory-filter-text">FROM</h5>
-                        <input type="text" class="filter-input" value="1000">
+                        <input type="text" class="filter-input" value="1000" id="filter-upgrade-from">
                     </div>
                     <div class="filter-part">
                         <h5 class="inventory-filter-text">TO</h5>
-                        <input type="text" class="filter-input" value="5000">
+                        <input type="text" class="filter-input" value="5000" id="filter-upgrade-to">
                     </div>
                 </div>
             </div>
@@ -74,6 +83,7 @@
         </div>
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="script.js"></script>
 </body>
 <div id="footer"></div>

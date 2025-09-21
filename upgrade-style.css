@@ -17,10 +17,14 @@
     gap: 50px;
     margin-top:50px;
 }
+.upgrade-containers{
+    transition: none;
+}
 .upgrade-container-main-item-1{
     display:flex;
     flex-wrap: nowrap;
     flex-shrink:0;
+    overflow: hidden;
     width: 375px;
     height: 250px;
     border-radius: 20px;
@@ -30,11 +34,16 @@
     border: 5px solid transparent;
     background-clip: padding-box, border-box;
     box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    filter: none;
+    transition: filter 0.25s ease;
 }
 .upgrade-container-main-item-2{
     display:flex;
     flex-wrap: nowrap;
     flex-shrink:0;
+    overflow: hidden;
     width: 375px;
     height: 250px;
     border-radius: 20px;
@@ -44,6 +53,15 @@
     border: 5px solid transparent;
     background-clip: padding-box, border-box;
     box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    filter:none;
+    transition: filter 0.25s ease;
+}
+.selected-item{
+    max-width: 365px;
+    max-height: 240px;
+    filter: drop-shadow(10px 5px 6px) brightness(1.7);
 }
 .upgrade-circle-container-dec-1{
   position: relative;
@@ -186,7 +204,7 @@
     justify-content: center;
 }
 .upgrade-button-text{
-    color:rgb(150, 155, 158);
+    color:rgb(192, 193, 193);
     text-align: center;
     margin: 0;
     font-size: 20px;
