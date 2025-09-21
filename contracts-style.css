@@ -66,6 +66,11 @@ body {
     border-radius: 3px;
 }
 
+.skin0 {
+    width: 40px;
+    height: 70px;
+}
+
 /* класс скрытия */
 .hidden {
     display: none;
