@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change skin</title>
+    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="contracts-style.css">
+</head>
+<div id="header"> </div>
+<body>
+    
+    <div id="header"></div>
+
+    <div class="container">
+        <!-- Левая часть -->
+        <div class="items-section">
+            <div class="items-header">MY ITEMS</div>
+            <div class="items-list">
+                <p>you don’t have items</p>
+            </div>
+        </div>
+
+        <!-- Правая часть -->
+        <div class="contract-section">
+            <div class="skins-grid">
+                <div class="skin"><img src = "icons/item_aug.png" class="skin2"></div>
+                <div class="skin"><img src = "icons/item_whiteawp.png" class="skin2"></div>
+                <div class="skin"></div>
+                <div class="skin"></div>
+                <div class="skin"></div>
+                <div class="skin"></div>
+                <div class="skin"></div>
+                <div class="skin"></div>
+            </div>
+
+            <div class="contract-controls">
+                <div class="balance-control">
+                    <label for="balance">ADD BALANCE</label>
+                    <input type="range" id="balance" min="0" max="10000" value="0">
+                    <span class="balance-value">0000</span>
+                </div>
+
+                <div class="range-control">
+                    <span>from 0 Cs</span>
+                    <span>to 0 Cs</span>
+                </div>
+
+                <button class="contract-button">TO SING THE CONTRACT</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+
+<script src="script.js"></script>
+</body>
+<div id="footer"> </div>
+</html>
