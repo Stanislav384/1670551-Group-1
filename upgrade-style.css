@@ -20,42 +20,63 @@
 .upgrade-containers{
     transition: none;
 }
-.upgrade-container-main-item-1{
-    display:flex;
-    flex-wrap: nowrap;
-    flex-shrink:0;
-    overflow: hidden;
+.upgrade-containers::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.upgrade-container-main-item-1 {
+    position: relative;
+    display: flex;
     width: 375px;
     height: 250px;
     border-radius: 20px;
-    background: 
+    border: 5px solid transparent;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.upgrade-container-main-item-1::before {
+    --sat: 0;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
         linear-gradient(rgb(55, 62, 68)) padding-box,
         linear-gradient(rgb(77, 88, 98), rgb(55, 62, 68)) border-box;
-    border: 5px solid transparent;
     background-clip: padding-box, border-box;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    filter: none;
+    border: 5px solid transparent;
+    z-index: -1;
+    filter: saturate(val(--sat));
     transition: filter 0.25s ease;
 }
-.upgrade-container-main-item-2{
-    display:flex;
-    flex-wrap: nowrap;
-    flex-shrink:0;
-    overflow: hidden;
+.upgrade-container-main-item-2 {
+    position: relative;
+    display: flex;
     width: 375px;
     height: 250px;
     border-radius: 20px;
-    background: 
+    border: 5px solid transparent;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.upgrade-container-main-item-2::before {
+    --sat: 0;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
         linear-gradient(rgb(55, 62, 68)) padding-box,
         linear-gradient(rgb(77, 88, 98), rgb(55, 62, 68)) border-box;
-    border: 5px solid transparent;
     background-clip: padding-box, border-box;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    filter:none;
+    border: 5px solid transparent;
+    z-index: -1;
+    filter: saturate(val(--sat));
     transition: filter 0.25s ease;
 }
 .selected-item{

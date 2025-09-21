@@ -1,3 +1,30 @@
+const user_data ={
+    name:"NMPmCH",
+    balance:345.37
+}
+
+function formatPrice(number) {
+  const [whole, decimal] = number.toString().split(".");
+  const formattedWhole = Number(whole).toLocaleString("en-GB").replace(/,/g, " ");
+
+  return `
+    <span class="normal-price">${formattedWhole}</span>
+    ${decimal ? `<span class="price-decimal">.${decimal}</span>` : ""}
+    <img src="icons/cscoin.png" class="coin-icon">
+  `;
+}
+function login_check(){
+    if (user_data){
+        const userbalance = document.getElementById("user-balance");
+        const usernickname = document.getElementById("user-nickname");
+        userbalance.innerHTML = formatPrice(user_data.balance);
+        usernickname.innerHTML = user_data.name;
+    }
+}
+function randint(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
     document.getElementById('footer').innerHTML = `
@@ -9,36 +36,31 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="header-left">
                 <a href="index.html"class="header-logo">CHANGESKIN</a>
                 <a href="upgrade.html" class="header-button">UPGRADE</a>
-                <a href="#" class="header-button">CONTRACTS</a>
-                <a href="#" class="header-button">GIVEAWAYS</a>
+                <a href="contracts.html" class="header-button">CONTRACTS</a>
             </div>
             <div class="header-right">
-                <div class="user-balance">
+                <div class="user-balance" id="user-balance">
                     <p><span class="normal-price">345</span><span class="price-decimal">.37</span></p>
                     <img src="icons/cscoin.png" class="coin-icon">
                 </div>
-                <a href="#" class="header-button">ACCOUNT NAME</a>
+                <a href="#" class="header-button" id="user-nickname">ACCOUNT NAME</a>
             </div>
         </header>`
 
-  if (path.includes("index.html") || path === "/") {
+    if (path.includes("index.html") || path === "/") {
     const case_group_list = [ // добавити группу
         {group_id:0, group_name:"Epic cases"},
         {group_id:1, group_name:"Rare cases"}
     ]
     const case_list = [ //добавити кейс
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:0},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:0},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:0},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:0},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:0},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:0},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:0},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:1},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:1},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:1},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:1},
-        {name:"Case", description:"10 Items", price:420, icon:"case_test", group:1}
+        {name:"Case Desert", description:"10 Items", price:420, icon:"desert_l5", group:0},
+        {name:"Case M4A4", description:"10 Items", price:420, icon:"m4a4_l2", group:0},
+        {name:"Case AK", description:"10 Items", price:420, icon:"ak47_l5", group:0},
+        {name:"Case AWP", description:"10 Items", price:420, icon:"awp_l5", group:0},
+        {name:"Case Agent Yellow", description:"10 Items", price:420, icon:"agent_yellow_l4", group:0},
+        {name:"Case Agent Red", description:"10 Items", price:420, icon:"agent_red_l4", group:0},
+        {name:"Case Agent Green", description:"10 Items", price:420, icon:"agent_green_l4", group:0},
+        {name:"Case Agent Blue", description:"10 Items", price:420, icon:"agent_blue_l4", group:1}
     ]
 
 
@@ -57,11 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     case_cont.className = "case"
                     case_cont.innerHTML = `<h3 class="case-name">${case_element.name}</h3>
                     <p class="case-description">${case_element.description}</p>
-                    <img src="icons/${case_element.icon}.png" class="case-icon">
-                    <div class="case-price-container">
+                    <img src="icons/case_${case_element.icon}.png" class="case-icon">
+                    <a class="case-price-container" href="case.html">
                         <h3 class="case-price">${case_element.price}</h3>
                         <img src="icons/cscoin.png" class="case-coin-icon">
-                    </div>`
+                    </a>`
                     case_road.appendChild(case_cont)
                 }
             })
@@ -326,11 +348,11 @@ document.addEventListener("DOMContentLoaded", () => {
             upgrade_btn.style.opacity = "0"
             setTimeout(()=>{
             if (type == "win"){
-                ucs.forEach(el =>{
+                /*ucs.forEach(el =>{
                     el.style.filter = "hue-rotate(300deg)"
                 })
-                ucm1.style.filter = "saturate(60)"
-                ucm2.style.filter = "saturate(60)"
+                ucm1.style.setProperty('--sat','60')
+                ucm2.style.setProperty('--sat','60')*/
                 update_deco_ring.style.setProperty("--sector-color", "#11c470ff");
                 upgrade_procent.innerHTML = "WIN";
                 upgrade_btn.style.background = "linear-gradient(180deg, #14F28A 0%, #02974C 100%) padding-box";
@@ -343,11 +365,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 setSector(0, 360)
             }
             if (type == "lose"){
-                ucs.forEach(el =>{
+               /* ucs.forEach(el =>{
                     el.style.filter = "hue-rotate(130deg)"
                 })
-                ucm1.style.filter = "saturate(15)"
-                ucm2.style.filter = "saturate(15)"
+                ucm1.style.setProperty('--sat','15')
+                ucm2.style.setProperty('--sat','15')*/
                 update_deco_ring.style.setProperty("--sector-color", "#c9124cff");
                 upgrade_procent.innerHTML = "LOSE";
                 upgrade_btn.style.background = " linear-gradient(180deg, #F2145A 0%, #970231 100%) padding-box";
@@ -394,15 +416,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 upgrade_procent.style.opacity = "0"
                 upgrade_btn.style.opacity = "0"
                 result = 0;
-                ucm1.style.filter = ""
-                ucm2.style.filter = ""
+                /*ucm1.style.filter = ""
+                ucm2.style.filter = ""*/
                 setSector(180,0)
                 setTimeout(()=>{
                 upgrade_btn_stage = "gray"
                 
-                ucs.forEach(el =>{
+                /*ucs.forEach(el =>{
                     el.style.filter = "hue-rotate(0)"
-                })
+                })*/
                 ubt.style.color = "rgb(192, 193, 193)"
                 upgrade_btn.style.background = "linear-gradient(#FFC935,#BA6917) padding-box, linear-gradient(#fee5a2,#BA6917) border-box";
                 selected_item_left.src = "icons/icon_filler.png";
@@ -480,4 +502,205 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         }
     }
+    if (path.includes("case.html") || path === "/") {
+        const case_items = [
+        {name:"Glock", price:420, icon:"glock"},
+        {name:"AWP", price:420, icon:"awp"},
+        {name:"USP", price:420, icon:"usp"},
+        {name:"AUG", price:420, icon:"aug"},
+        {name:"Glock", price:420, icon:"glock"},
+        {name:"AWP", price:420, icon:"awp"},
+        {name:"USP", price:420, icon:"usp"},
+        {name:"AUG", price:420, icon:"aug"},
+        {name:"Glock", price:420, icon:"glock"},
+        {name:"AWP", price:420, icon:"awp"},
+        {name:"USP", price:420, icon:"usp"},
+        {name:"AUG", price:420, icon:"aug"},
+        ]
+        
+        function load_case_items(array){
+        if (Array.isArray(array) && array.length > 0) {
+            array.forEach(case_element => {
+            let container;
+            container = document.getElementById("case-inventory-cont");
+
+            if (!container) return;
+            const div = document.createElement("div");
+            div.className = "case"
+            div.innerHTML = `<h3 class="case-name">${case_element.name}</h3>
+                <img src="icons/item_${case_element.icon}.png" class="case-icon">
+                <div class="case-price-container">
+                    <h3 class="case-price">${case_element.price}</h3>
+                    <img src="icons/cscoin.png" class="case-coin-icon">
+                </div>
+            `;
+            container.appendChild(div);
+            });
+            
+        }
+        };
+    load_case_items(case_items);
+
+    function roulet_reset(array,reset,slot,id=0){
+        let class_name = ""
+        let subclass_name = ""
+
+        console.log(reset, slot, id)
+
+        if (slot == 0) {
+        class_name = "case-roulet-item-cell"
+        subclass_name = ""};
+        
+        const roulet_container = document.getElementById(`case_roulet_slot_${slot}`)
+        let expand_number = 5
+        if (reset == "all" || reset == "expand"){
+        if (reset == "all"){
+            roulet_container.innerHTML = ''
+            gsap.to(roulet_container, {duration: 0, x: 0, y: 0})
+            expand_number = 60
+        }
+            for (let i = 0; i < expand_number; i++) {
+            const ran_container = array[randint(0, array.length - 1)];
+            const div = document.createElement("div");
+            div.className = class_name
+            div.id = `roulet_cell_slot_${slot}`
+            div.dataset.item_id = ran_container.item_id;
+            div.innerHTML = `<h3 class="case-name">${ran_container.name}</h3>
+                <img src="icons/item_${ran_container.icon}.png" class="case-icon">
+                <div class="case-price-container">
+                    <h3 class="case-price">${ran_container.price}</h3>
+                    <img src="icons/cscoin.png" class="case-coin-icon">
+                </div>`;
+            roulet_container.appendChild(div)
+            };
+        }
+        else if (reset == "add") {
+        const ran_container = array[id];
+        const div = document.createElement("div");
+        div.className = class_name;
+        div.id = `roulet_cell_slot_${slot}`;
+        div.dataset.item_id = ran_container.item_id;
+        div.innerHTML = `<h3 class="case-name">${ran_container.name}</h3>
+                <img src="icons/item_${ran_container.icon}.png" class="case-icon">
+                <div class="case-price-container">
+                    <h3 class="case-price">${ran_container.price}</h3>
+                    <img src="icons/cscoin.png" class="case-coin-icon">
+                </div>`;
+        }
+    }
+    CustomEase.create("custom", "M0,0 C0,0 0.118,0.607 0.269,0.743 0.394,0.855 0.486,0.883 0.655,0.929 0.719,0.945 0.824,0.936 0.861,0.951 0.891,0.963 0.908,0.959 0.934,0.974 0.956,0.987 0.969,1 1,1 1.03,1 1,1 1,1 ")
+    let slots_move = 57;
+    let step = 205;
+    function roulet_spin(slot, array_stop_on_element) {
+    function set_case_result(slot){
+        if (slot == 0) roulet_0_result = array_stop_on_element
+    }
+    roulet_reset(case_items,"all",slot,array_stop_on_element)
+    roulet_reset(case_items,"add",slot,array_stop_on_element)
+    
+    const containerSelector = `#case_roulet_slot_${slot}`;
+    const container = document.querySelector(containerSelector);
+    let slots_to_move = (step * slots_move)
+    gsap.to(container, {duration: 0, x: 0, y: 0})
+        gsap.to(container, {duration: 16, ease: "custom", x: 0-(slots_to_move), y: 0,onComplete: () => {
+        set_case_result(slot)
+        setTimeout(() => {case_results(case_items, "show")},1000)
+        }
+        })
+        roulet_reset(case_items,"expand",slot)
+    
+    }
+
+    let roulet_0_result = -1
+    function case_results(array,act){
+    const case_roulet_result_container = document.querySelector(".case-roulet-result-container")
+    let case_roulet_result = document.querySelectorAll(".case-roulet-result")
+    case_roulet_result.forEach(el => {
+        el.style.opacity = "1";
+    })
+    let array_el
+    
+    if (act == "show"){
+        case_roulet_result_container.innerHTML = ""
+        case_roulet_result_container.style.backgroundColor = "#0b0c10b3";
+        case_roulet_result_container.style.backdropFilter = "blur(10px)";
+        if (roulet_0_result > -1){
+        array_el = array[roulet_0_result]
+        const div = document.createElement("div")
+        div.className = "case-roulet-result"
+        div.innerHTML = `<h3 class="case-name">${array_el.name}</h3>
+                <img src="icons/item_${array_el.icon}.png" class="case-icon">`
+
+        case_roulet_result_container.appendChild(div)
+        }
+        case_roulet_result_container.style.opacity = "1";
+        case_roulet_result = document.querySelectorAll(".case-roulet-result")
+        case_roulet_result.forEach(el => {
+        el.style.opacity = "1";
+    })
+    if (!roulet_fast) setTimeout(() => {case_buttons_controller("start","unlock")},100)
+    else case_buttons_controller("start","unlock")
+    }
+    else if (act == "hide"){
+        case_roulet_result_container.style.opacity = "0%";
+        case_roulet_result_container.style.backgroundColor = "#0b0c10ff";
+        case_roulet_result_container.style.backdropFilter = "blur(0px)";
+        setTimeout(()=> {case_roulet_result_container.innerHTML = ""},250)
+        roulet_0_result = -1
+        
+    }
+    }
+    if (!user_data) {
+        document.querySelector(".case-buttons-upper-subcontainer-container-img").style.display="flex";
+        document.querySelector(".case-buttons-upper-subcontainer-text").style.display="flex";
+    }
+    else if (user_data) {
+        document.querySelector(".case-buttons-upper-subcontainer-container-img").style.display="none";
+        document.querySelector(".case-buttons-upper-subcontainer-text").style.display="none";
+    }
+
+    let roulets_amount = 0
+    function roulets_switcher(num){
+    const roulet_arrow_vertical = document.querySelector(".case-roulet-arrows-vertical")
+    const case_roulet_container = document.querySelector(".case-roulet-container")
+    const case_roulet_slot_0 = document.getElementById("case_roulet_slot_0")
+
+    slots_move = 57;
+    step = 286.5;
+    case_roulet_slot_0.style.display = "none";
+    case_roulet_container.style.setProperty("--crc-before", "rbga(0,0,0,0)");
+    roulet_arrow_vertical.style.display = "none";
+    
+        slots_move = 57;
+        step = 205;
+        case_roulet_container.style.setProperty("--crc-before", "linear-gradient(to right, #0B0C10 0%, rgba(0, 0, 0, 0)20%, rgba(0, 0, 0, 0)80%, #0B0C10)");
+        roulet_arrow_vertical.style.display = "flex";
+        case_roulet_slot_0.style.display = "flex";
+        roulet_reset(case_items,"all",0)
+    
+    }
+    roulets_switcher(roulets_amount)
+    case_buttons_controller("conb_1","activate")
+    document.getElementById("case_open_btn").addEventListener('click', function() {
+    case_buttons_controller("start","start")
+    });
+    function case_buttons_controller(btn,act){
+    if (btn == "start" && act == "start"){
+            case_results(case_items,"hide")
+            roulet_spin(0, randint(0,3))
+    }
+    else if (btn == "start", act == "unlock"){
+        case_open_num_selection.style.opacity = "1";
+        case_open_num_selection.style.pointerEvents = "all";
+        case_buttons_middle_subcontainer.style.opacity = "1";
+        case_buttons_middle_subcontainer.style.pointerEvents = "all";
+    }
+
+    }
+    let roulet_fast = false;
+
+
+    roulet_reset(case_items,"all",0)
+    }
+    login_check()
 })
