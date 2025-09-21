@@ -1,0 +1,157 @@
+body {
+    margin-top: 200px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #1a1f2b; 
+    color: #ccc;
+}
+
+/* контейнер левой и правой частей */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 40px;
+}
+
+/* левая часть */
+.items-section {
+    background: #252b3a;
+    width: 220px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.items-header {
+    background: #2f3545;
+    padding: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.items-list {
+    background: #1f2433;
+    padding: 15px;
+    font-size: 13px;
+    color: #999;
+}
+
+/* место в инвентаре под предметы */
+
+.items-empty {
+    background: #1f2433;
+    padding: 15px;
+    font-size: 13px;
+    color: #999;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    background: #2f3545;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.item {
+    width: 40px;
+    height: 60px;
+    background: #1f2433;
+    border-radius: 3px;
+}
+
+.skin0 {
+    width: 40px;
+    height: 70px;
+}
+
+/* класс скрытия */
+.hidden {
+    display: none;
+}
+
+/* правая часть */
+.contract-section {
+    background: #252b3a;
+    padding: 20px;
+    border-radius: 5px;
+    width: 500px;
+}
+
+/* сетка с оружием */
+.skins-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    background: #2f3545;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.skin {
+    width: 100px;
+    height: 70px;
+    background: #1f2433 url('ak.png') center/contain no-repeat; 
+    border-radius: 3px;
+}
+
+.skin2 {
+    width: 100px;
+    height: 70px;
+}
+
+/* контракты под сеткой */
+.contract-controls {
+    margin-top: 20px;
+    background: #2f3545;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.balance-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.balance-control input[type=range] {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.balance-value {
+    min-width: 40px;
+    text-align: right;
+}
+
+.range-control {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.contract-button {
+    width: 100%;
+    background: #1f2433;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.contract-button:hover {
+    background: #3a4155;
+}
